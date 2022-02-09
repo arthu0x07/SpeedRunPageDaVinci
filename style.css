@@ -99,7 +99,7 @@ html {
 
   transform: perspective(100px) rotateY(4deg);
 
-  transition: transform 1.5s ease;
+  transition: transform 0.75s ease;
 
   position: relative;
   bottom: -20%;
