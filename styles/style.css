@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  background-color: whitesmoke;
+
+  animation: marginBackground 2s ease 10.5s alternate forwards,
+    LiberatedScroll 0.1s 16s forwards;
+}
+
+html {
+  font-family: 'Source Sans Pro', cursive;
+}
+
+.container-animations {
+  height: 100%;
+  margin: 0rem;
+
+  background-color: rgb(15, 18, 20);
+  animation: AnimateBgColors 2s 3 alternate forwards;
+}
+
+.header-background-color {
+  width: 100%;
+  height: 40vh;
+  background-color: #2c3787;
+
+  position: relative;
+  top: -100%;
+  animation: returnBackground 3s 6s forwards;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.header-background-color img {
+  position: relative;
+  top: 3rem;
+  z-index: 0;
+  box-shadow: 0px 10px 20px 20px rgba(255, 255, 255, 0.24);
+  opacity: 0;
+
+  filter: contrast(1.3);
+
+  background-color: white;
+  padding: 2rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: scale(1);
+  animation: FirstImageAppear 2s ease 14s forwards,
+    ImagePulse 2.5s ease 15.9s infinite;
+}
+
+.header-background-transition {
+  position: absolute;
+  background-color: #ed2939;
+  left: -120%;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  animation: returnRedground 1.5s 12.5s forwards,
+    ChangeRedBackgroundColor 1.5s 16s forwards;
+}
+
+.main-background-color {
+  width: 100%;
+  height: auto;
+  min-height: 60vh;
+  background-color: rgb(226, 211, 211);
+
+  position: relative;
+  top: 200%;
+
+  animation: returnBackground 3s 7s forwards;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  padding-top: 8%;
+}
+
+.card {
+  width: 270px;
+  height: 300px;
+
+  border: 1px solid rgb(48, 47, 47);
+  border-radius: 5px;
+  box-shadow: 0px 20px 40px 1px rgb(61, 57, 57);
+
+  transform: perspective(100px) rotateY(4deg);
+
+  transition: transform 1.5s ease;
+
+  position: relative;
+  bottom: -20%;
+  opacity: 0;
+
+  background-color: #2a2a2a;
+  color: whitesmoke;
+
+  animation: ApperCardsWithMove 1.4s 16s forwards;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.card h2 {
+}
+
+.card:hover {
+  transform: perspective(100px) rotateY(0deg);
+}
+
+@keyframes LiberatedScroll {
+  to {
+    overflow: visible;
+  }
+}
+
+@keyframes ApperCardsWithMove {
+  to {
+    bottom: 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes ChangeRedBackgroundColor {
+  to {
+    background-color: rgb(15, 18, 20);
+  }
+}
+
+@keyframes FirstImageAppear {
+  0% {
+    opacity: 0;
+    z-index: 3;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+@keyframes ImagePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 50px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes marginBackground {
+  0% {
+    margin: 0rem;
+  }
+
+  50% {
+    margin: 2rem;
+  }
+
+  100% {
+    margin: 0rem;
+  }
+}
+
+@keyframes returnRedground {
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes returnBackground {
+  to {
+    top: 0%;
+  }
+}
+
+@keyframes AnimateBgColors {
+  0% {
+    background-color: white;
+  }
+
+  100% {
+    background-color: rgb(15, 18, 20);
+  }
+}
+
+/* Adicionar animations... */
+
+@media (min-width: 1024px) {
+  .card {
+    width: 22%;
+    padding: 1rem;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    margin: 0 0 5rem 0;
+    width: 34%;
+    padding: 1%;
+  }
+}
+
+@media (min-width: 660px) {
+  .card {
+    margin: 0 0 5rem 0;
+    width: 40%;
+    padding: 1%;
+  }
+}
+
+@media (max-width: 659px) {
+  .main-background-color{
+    padding-top: 18%;
+  }
+
+  .card {
+    margin: 0 0 5rem 0;
+    width: 80%;
+    max-width: 300px;
+    padding: 1%;
+  }
+}
